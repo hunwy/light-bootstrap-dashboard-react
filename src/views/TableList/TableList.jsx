@@ -32,8 +32,8 @@ class TableList extends Component {
           <Row>
             <Col md={12}>
               <Card
-                title="Striped Table with Hover"
-                category="Here is a subtitle for this table"
+                title="提币审核系统"
+                category="基于智能合约的提币系统"
                 ctTableFullWidth
                 ctTableResponsive
                 content={
@@ -52,7 +52,7 @@ class TableList extends Component {
                             <td >{prop.account}</td>
                             <td >{prop.size}</td>
                             <td >{prop.transaction}</td>
-                            <td><button>YES</button><button>NO</button></td>
+                            <td><button>Approve</button><button>Rejected</button></td>
                           </tr>
                         );
                       })}

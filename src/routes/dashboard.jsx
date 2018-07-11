@@ -22,7 +22,7 @@ const dashboardRoutes = [
   },
   {
     path: "/table",
-    name: "Withdraw Apply",
+    name: "提币审核",
     icon: "pe-7s-note2",
     component: TableList
   },
