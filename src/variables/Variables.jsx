@@ -247,14 +247,14 @@ var style = {
 // // // For tables
 // //
 //
-const thArray = ["ID", "Name", "Salary", "Country", "City"];
+const thArray = ["Address", "size", "TX", "operation"];
 const tdArray = [
-  ["1", "Dakota Rice", "$36,738", "Niger", "Oud-Turnhout"],
-  ["2", "Minerva Hooper", "$23,789", "Curaçao", "Sinaai-Waas"],
-  ["3", "Sage Rodriguez", "$56,142", "Netherlands", "Baileux"],
-  ["4", "Philip Chaney", "$38,735", "Korea, South", "Overland Park"],
-  ["5", "Doris Greene", "$63,542", "Malawi", "Feldkirchen in Kärnten"],
-  ["6", "Mason Porter", "$78,615", "Chile", "Gloucester"]
+  ["0x04fe0f6Eb0998cdFFE47C33DEC4E30Ca698d3295", "100", "0xbecd58dbd25a45e2953a6617a4dcead31f50aa0abdd4f2b5afb3c8e87a13ca01"],
+  ["0x04fe0f6Eb0998cdFFE47C33DEC4E30Ca698d3295", "100", "0xbecd58dbd25a45e2953a6617a4dcead31f50aa0abdd4f2b5afb3c8e87a13ca01"],
+  ["0x04fe0f6Eb0998cdFFE47C33DEC4E30Ca698d3295", "100", "0xbecd58dbd25a45e2953a6617a4dcead31f50aa0abdd4f2b5afb3c8e87a13ca01"],
+  ["0x04fe0f6Eb0998cdFFE47C33DEC4E30Ca698d3295", "100", "0xbecd58dbd25a45e2953a6617a4dcead31f50aa0abdd4f2b5afb3c8e87a13ca01"],
+  ["0x04fe0f6Eb0998cdFFE47C33DEC4E30Ca698d3295", "100", "0xbecd58dbd25a45e2953a6617a4dcead31f50aa0abdd4f2b5afb3c8e87a13ca01"],
+  ["0x04fe0f6Eb0998cdFFE47C33DEC4E30Ca698d3295", "100", "0xbecd58dbd25a45e2953a6617a4dcead31f50aa0abdd4f2b5afb3c8e87a13ca01"]
 ];
 
 //
