@@ -1,10 +1,30 @@
 import React, { Component } from "react";
 import { Grid, Row, Col, Table } from "react-bootstrap";
 
-import Card from "components/Card/Card.jsx";
-import { thArray, tdArray } from "variables/Variables.jsx";
+import Card from "components/Card/Card";
+import { thArray } from "variables/Variables";
+import applyService from "services/ApplyService";
 
 class TableList extends Component {
+  constructor(props) {
+    super(props)
+    this.state={
+      applyArray : []
+
+    };
+  }
+
+  componentWillMount(){
+    
+    applyService.getApplyData().then((applyData)=>{
+         this.setState({applyArray:applyData});        
+
+    })
+      
+  }
+
+
+
   render() {
     return (
       <div className="content">
@@ -26,12 +46,12 @@ class TableList extends Component {
                       </tr>
                     </thead>
                     <tbody>
-                      {tdArray.map((prop, key) => {
+                      {this.state.applyArray.map((prop, key) => {
                         return (
                           <tr key={key}>
-                            {prop.map((prop, key) => {
-                              return <td key={key}>{prop}</td>;
-                            })}
+                            <td >{prop.account}</td>
+                            <td >{prop.size}</td>
+                            <td >{prop.transaction}</td>
                             <td><button>YES</button><button>NO</button></td>
                           </tr>
                         );

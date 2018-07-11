@@ -5,6 +5,7 @@ import NotificationSystem from "react-notification-system";
 import Header from "components/Header/Header";
 import Footer from "components/Footer/Footer";
 import Sidebar from "components/Sidebar/Sidebar";
+import config from "services/ConfigurationService";
 
 import { style } from "variables/Variables.jsx";
 
