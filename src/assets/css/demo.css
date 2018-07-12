@@ -4,7 +4,11 @@
     -webkit-transition: all .34s;
     -moz-transition: all .34s;
 }
-
+.content table th,
+.content table td{
+  width: 25%;
+  text-align: center;
+}
 .all-icons [class*="pe-"]{
     font-size: 40px;
 }

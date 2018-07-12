@@ -18,9 +18,12 @@ class TableList extends Component {
     
     applyService.getApplyData().then((applyData)=>{
          this.setState({applyArray:applyData});        
-
     })
       
+  }
+
+  Approve(account,size){
+    applyService.deposit(account,size)
   }
 
 
@@ -52,7 +55,7 @@ class TableList extends Component {
                             <td >{prop.account}</td>
                             <td >{prop.size}</td>
                             <td >{prop.transaction}</td>
-                            <td><button>Approve</button><button>Rejected</button></td>
+                            <td><button onClick={(e)=>this.Approve(prop.account,prop.size)}>Approve</button><button>Rejected</button></td>
                           </tr>
                         );
                       })}
