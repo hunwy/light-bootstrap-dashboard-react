@@ -12,6 +12,10 @@ class TableList extends Component {
       applyArray : []
 
     };
+    if(!window.address)
+    {
+       window.location.href='/';
+    }
   }
 
   componentWillMount(){
@@ -22,8 +26,8 @@ class TableList extends Component {
       
   }
 
-  Approve(account,size){
-    applyService.deposit(account,size)
+  approveWithdraw(account,size){
+    applyService.approveWithdraw(account,size)
   }
 
 
@@ -55,7 +59,7 @@ class TableList extends Component {
                             <td >{prop.account}</td>
                             <td >{prop.size}</td>
                             <td >{prop.transaction}</td>
-                            <td><button onClick={(e)=>this.Approve(prop.account,prop.size)}>Approve</button><button>Rejected</button></td>
+                            <td><button onClick={(e)=>this.approveWithdraw(prop.account,prop.size)}>Approve</button><button>Rejected</button></td>
                           </tr>
                         );
                       })}

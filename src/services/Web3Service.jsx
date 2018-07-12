@@ -13,6 +13,34 @@ class Web3Service {
     Web3Service.instance = this;  
   }
 
+  clear(){
+      window.address          = null;
+      window.addressShow      = null;
+      window.privateKey       = null;
+      reactLocalStorage.setObject('wallet', null);
+  }
+
+  gas(gas){
+     window.gas = gas;
+     reactLocalStorage.setObject('gas', gas);
+  }
+
+  import(pk){
+
+      var obj=window.web3.eth.accounts.wallet.add(pk);
+      window.address          = obj.address;
+      window.addressShow      = window.address.substring(0,10)+"...";
+      window.privateKey       = pk;
+
+      reactLocalStorage.setObject('wallet', 
+          {
+            'address': window.address,
+          'privateKey': window.privateKey,
+          'addressshow': window.addressshow});
+
+
+  }
+
 
 
   loadWallet(){
@@ -31,7 +59,19 @@ class Web3Service {
           window.address = obj.address;
           window.privateKey = obj.privateKey;
           window.addressshow = obj.address.substring(0,10)+"...";
-          window.gas = 4;
+          
+      }
+    }
+
+     if( !window.gas )
+    {
+
+
+      var gas =reactLocalStorage.getObject('gas');
+      console.log("########################gas#############",gas);
+      if(gas)
+      {
+          window.gas = gas;
       }
     }
     

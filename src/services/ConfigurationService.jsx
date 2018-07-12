@@ -44,6 +44,18 @@ class ConfigurationService {
          console.log('window.web3',window.web3);
       }
 
+      //get exchange address
+      if(config[i].key ==='exchangeAddress')
+      {
+         window.config.exchangeAddress = config[i].value;
+      }
+
+      //get pps address
+      if(config[i].key ==='ppsAddress')
+      {
+         window.config.ppsAddress = config[i].value;
+      }
+
 
     }
 

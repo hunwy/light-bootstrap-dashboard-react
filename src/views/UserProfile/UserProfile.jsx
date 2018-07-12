@@ -2,169 +2,127 @@ import React, { Component } from "react";
 import {
   Grid,
   Row,
-  Col,
-  FormGroup,
-  ControlLabel,
-  FormControl
+  Col
 } from "react-bootstrap";
 
 import { Card } from "components/Card/Card.jsx";
-import { FormInputs } from "components/FormInputs/FormInputs.jsx";
-import { UserCard } from "components/UserCard/UserCard.jsx";
 import Button from "components/CustomButton/CustomButton.jsx";
-
-import avatar from "assets/img/faces/face-3.jpg";
+import ReactDOM from 'react-dom';
+import Modal from 'react-responsive-modal';
+import web3Service from "services/Web3Service";
 
 class UserProfile extends Component {
+
+   constructor(props) {
+    super(props);
+    this.state = {
+      open: false,
+      gasopen:false,
+      privatekey:'',
+      gas:''
+    };
+    if(!window.address)
+    {
+       window.location.href='/';
+    }
+  }
+ 
+  onOpenModal = () => {
+    this.setState({ open: true });
+  };
+ 
+  onCloseModal = () => {
+    this.setState({ open: false });
+  };
+
+  onOpenGasModal = () => {
+    this.setState({ gasopen: true });
+  };
+ 
+  onCloseGasModal = () => {
+    this.setState({ gasopen: false });
+  };
+
+  import = () => {
+    this.onCloseModal();
+    web3Service.import('0x'+this.state.privatekey);
+  };
+
+  clear = () => {
+    web3Service.clear();
+  };
+
+  gas = () => {
+    this.onCloseGasModal();
+    web3Service.gas(this.state.gas);
+  };
+
+
+
+
+
   render() {
     return (
-      <div className="content">
+    <div>
+    <div className="content">
         <Grid fluid>
-          <Row>
-            <Col md={8}>
-              <Card
-                title="Edit Profile"
-                content={
+            <Row>
+                <Col md={10}>
+                <Card title="公司钱包设置" content={ 
                   <form>
-                    <FormInputs
-                      ncols={["col-md-5", "col-md-3", "col-md-4"]}
-                      proprieties={[
-                        {
-                          label: "Company (disabled)",
-                          type: "text",
-                          bsClass: "form-control",
-                          placeholder: "Company",
-                          defaultValue: "Creative Code Inc.",
-                          disabled: true
-                        },
-                        {
-                          label: "Username",
-                          type: "text",
-                          bsClass: "form-control",
-                          placeholder: "Username",
-                          defaultValue: "michael23"
-                        },
-                        {
-                          label: "Email address",
-                          type: "email",
-                          bsClass: "form-control",
-                          placeholder: "Email"
-                        }
-                      ]}
-                    />
-                    <FormInputs
-                      ncols={["col-md-6", "col-md-6"]}
-                      proprieties={[
-                        {
-                          label: "First name",
-                          type: "text",
-                          bsClass: "form-control",
-                          placeholder: "First name",
-                          defaultValue: "Mike"
-                        },
-                        {
-                          label: "Last name",
-                          type: "text",
-                          bsClass: "form-control",
-                          placeholder: "Last name",
-                          defaultValue: "Andrew"
-                        }
-                      ]}
-                    />
-                    <FormInputs
-                      ncols={["col-md-12"]}
-                      proprieties={[
-                        {
-                          label: "Adress",
-                          type: "text",
-                          bsClass: "form-control",
-                          placeholder: "Home Adress",
-                          defaultValue:
-                            "Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09"
-                        }
-                      ]}
-                    />
-                    <FormInputs
-                      ncols={["col-md-4", "col-md-4", "col-md-4"]}
-                      proprieties={[
-                        {
-                          label: "City",
-                          type: "text",
-                          bsClass: "form-control",
-                          placeholder: "City",
-                          defaultValue: "Mike"
-                        },
-                        {
-                          label: "Country",
-                          type: "text",
-                          bsClass: "form-control",
-                          placeholder: "Country",
-                          defaultValue: "Andrew"
-                        },
-                        {
-                          label: "Postal Code",
-                          type: "number",
-                          bsClass: "form-control",
-                          placeholder: "ZIP Code"
-                        }
-                      ]}
-                    />
-
                     <Row>
-                      <Col md={12}>
-                        <FormGroup controlId="formControlsTextarea">
-                          <ControlLabel>About Me</ControlLabel>
-                          <FormControl
-                            rows="5"
-                            componentClass="textarea"
-                            bsClass="form-control"
-                            placeholder="Here can be your description"
-                            defaultValue="Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo."
-                          />
-                        </FormGroup>
-                      </Col>
+                    <Col md={10}>
+                    <h5>钱包地址</h5>
+                    <input type="text" className="form-control" placeholder="钱包地址" value={window.address} />
+                    </Col>
+
+                    <Col md={2}>
+                    <h5>Gas Price</h5>
+                    <input type="number" className="form-control" placeholder="Gas Price" value={window.gas} />
+                    </Col>
                     </Row>
-                    <Button bsStyle="info" pullRight fill type="submit">
-                      Update Profile
-                    </Button>
+                    
+                    <Row>
+                        <Col md={2}>
+                        <Button bsStyle="info" fill onClick={this.onOpenModal}>
+                            导入钱包
+                        </Button>
+                        </Col>
+                        <Col md={2}>
+                        <Button bsStyle="info" fill onClick={this.onOpenGasModal}>
+                            设定Gas
+                        </Button>
+                        </Col>
+                        <Col md={1}>
+                        <Button bsStyle="info" fill
+                        onClick={this.clear}>
+                            清空账号
+                        </Button>
+                        </Col>
+                    </Row>
                     <div className="clearfix" />
-                  </form>
-                }
-              />
-            </Col>
-            <Col md={4}>
-              <UserCard
-                bgImage="https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=300&q=75&w=400"
-                avatar={avatar}
-                name="Mike Andrew"
-                userName="michael24"
-                description={
-                  <span>
-                    "Lamborghini Mercy
-                    <br />
-                    Your chick she so thirsty
-                    <br />
-                    I'm in that two seat Lambo"
-                  </span>
-                }
-                socials={
-                  <div>
-                    <Button simple>
-                      <i className="fa fa-facebook-square" />
-                    </Button>
-                    <Button simple>
-                      <i className="fa fa-twitter" />
-                    </Button>
-                    <Button simple>
-                      <i className="fa fa-google-plus-square" />
-                    </Button>
-                  </div>
-                }
-              />
-            </Col>
-          </Row>
-        </Grid>>
-      </div>
+                      </form>
+                    } />
+              </Col>
+            </Row>
+        </Grid>
+    </div>
+    <div>
+        <Modal open={this.state.open} onClose={this.onCloseModal} center>
+            <h4>Private Key</h4>
+            <input type="text" className="form-control" placeholder="请输入私钥" onChange={(e)=> this.setState({privatekey: e.target.value})} />
+            <button onClick={this.import}>导入</button>
+        </Modal>
+    </div>
+
+        <div>
+        <Modal open={this.state.gasopen} onClose={this.onCloseGasModal} center>
+            <h4>Gas Price</h4>
+            <input type="number" className="form-control" placeholder="请输入Gas Price" onChange={(e)=> this.setState({gas: e.target.value})} />
+            <button onClick={this.gas}>确定</button>
+        </Modal>
+    </div>
+</div>
     );
   }
 }

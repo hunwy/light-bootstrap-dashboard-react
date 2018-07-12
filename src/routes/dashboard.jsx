@@ -16,7 +16,7 @@ const dashboardRoutes = [
   },
   {
     path: "/user",
-    name: "User Profile",
+    name: "管理钱包",
     icon: "pe-7s-user",
     component: UserProfile
   },
