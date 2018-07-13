@@ -23,7 +23,6 @@ class UserProfile extends Component {
     };
     if(!window.address)
     {
-       window.location.href='/';
     }
   }
  
@@ -63,38 +62,37 @@ class UserProfile extends Component {
 
   render() {
     return (
-    <div>
-    <div className="content">
+    <div className="content UserProfile">
         <Grid fluid>
             <Row>
-                <Col md={10}>
+                <Col md={12}>
                 <Card title="公司钱包设置" content={ 
                   <form>
                     <Row>
                     <Col md={10}>
                     <h5>钱包地址</h5>
-                    <input type="text" className="form-control" placeholder="钱包地址" value={window.address} />
+                    <input type="text" className="form-control" placeholder="钱包地址" readOnly value={window.address} />
                     </Col>
 
                     <Col md={2}>
-                    <h5>Gas Price</h5>
-                    <input type="number" className="form-control" placeholder="Gas Price" value={window.gas} />
+                    <h5 className="Gas">Gas Price</h5>
+                    <input type="number" className="form-control" placeholder="Gas Price"  defaultValue={window.gas} />
                     </Col>
                     </Row>
                     
                     <Row>
-                        <Col md={2}>
-                        <Button bsStyle="info" fill onClick={this.onOpenModal}>
+                        <Col sm={3} md={2} lg={2}>
+                        <Button bsStyle="info" onClick={this.onOpenModal}>
                             导入钱包
                         </Button>
                         </Col>
-                        <Col md={2}>
-                        <Button bsStyle="info" fill onClick={this.onOpenGasModal}>
+                        <Col sm={3} md={2} lg={2}>
+                        <Button bsStyle="info" onClick={this.onOpenGasModal}>
                             设定Gas
                         </Button>
                         </Col>
-                        <Col md={1}>
-                        <Button bsStyle="info" fill
+                        <Col sm={3} md={2}  lg={2}>
+                        <Button bsStyle="info" className="clear"
                         onClick={this.clear}>
                             清空账号
                         </Button>
@@ -106,23 +104,22 @@ class UserProfile extends Component {
               </Col>
             </Row>
         </Grid>
-    </div>
     <div>
         <Modal open={this.state.open} onClose={this.onCloseModal} center>
             <h4>Private Key</h4>
             <input type="text" className="form-control" placeholder="请输入私钥" onChange={(e)=> this.setState({privatekey: e.target.value})} />
-            <button onClick={this.import}>导入</button>
+            <Button className="close" bsStyle="info" onClick={this.import}>导入</Button>
         </Modal>
     </div>
 
-        <div>
+    <div>
         <Modal open={this.state.gasopen} onClose={this.onCloseGasModal} center>
             <h4>Gas Price</h4>
             <input type="number" className="form-control" placeholder="请输入Gas Price" onChange={(e)=> this.setState({gas: e.target.value})} />
-            <button onClick={this.gas}>确定</button>
+            <Button className="close" bsStyle="info" onClick={this.gas}>确定</Button>
         </Modal>
     </div>
-</div>
+    </div>
     );
   }
 }

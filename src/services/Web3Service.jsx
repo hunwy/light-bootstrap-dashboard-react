@@ -27,6 +27,7 @@ class Web3Service {
 
   import(pk){
 
+      console.log(window.web3.eth.accounts)
       var obj=window.web3.eth.accounts.wallet.add(pk);
       window.address          = obj.address;
       window.addressShow      = window.address.substring(0,10)+"...";

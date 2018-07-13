@@ -4,6 +4,7 @@ import { Grid, Row, Col, Table } from "react-bootstrap";
 import Card from "components/Card/Card";
 import { thArray } from "variables/Variables";
 import applyService from "services/ApplyService";
+import Button from "components/CustomButton/CustomButton.jsx";
 
 class TableList extends Component {
   constructor(props) {
@@ -14,7 +15,7 @@ class TableList extends Component {
     };
     if(!window.address)
     {
-       window.location.href='/';
+      window.location.href="/";
     }
   }
 
@@ -34,7 +35,7 @@ class TableList extends Component {
 
   render() {
     return (
-      <div className="content">
+      <div className="content TableList">
         <Grid fluid>
           <Row>
             <Col md={12}>
@@ -61,6 +62,7 @@ class TableList extends Component {
                             <td >{prop.size}</td>
                             <td >{prop.transaction}</td>
                             <td><button onClick={(e)=>this.approveWithdraw(prop.account,prop.size,prop.applyAddress)}>Approve</button><button>Rejected</button></td>
+
                           </tr>
                         );
                       })}
