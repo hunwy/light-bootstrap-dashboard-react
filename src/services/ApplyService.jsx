@@ -37,14 +37,14 @@ class ApplyService {
   return new Promise((resolve, reject) => {
      console.log(Exchange.abi);
       var contract = new window.web3.eth.Contract(Exchange.abi,window.config.exchangeAddress);
-      
+
       var dataobj  = contract.methods.approveWithdraw( id,applyAddress,size ,window.config.ppsAddress).encodeABI();
       
       window.web3.eth.getTransactionCount(window.address).then((txCount) =>{
                      
             var txData = {
                           nonce    : window.web3.utils.toHex(txCount),
-                          gasLimit : window.web3.utils.toHex(153916),
+                          gasLimit : window.web3.utils.toHex(253916),
                           gasPrice : window.web3.utils.toHex(parseInt(window.gas)*1000000000), // 10 Gwei
                           to       : window.config.exchangeAddress,
                           from     : window.address, 
