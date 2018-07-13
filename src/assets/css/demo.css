@@ -1,3 +1,72 @@
+/*TableList start*/
+.TableList td button{
+  padding: 5px 10px;
+  margin: 0 10px;
+  background: #fff;
+  border:1px solid #151b4e;
+  color: #151b4e;
+}
+.TableList td button.red{
+  background: #fff;
+  border:1px solid #f6416c;
+  color: #f6416c;
+}
+.TableList td button:hover{
+  color: #fff;
+  background: #151b4e;
+  border:1px solid #151b4e;
+}
+.TableList td button.red:hover{
+  background: #f6416c;
+  border:1px solid #f6416c;
+}
+/*TableList end*/
+
+/*UserProfile start*/
+.UserProfile button,
+.styles_modal__gNwvD  button.close{
+  width: 100%;
+  padding: 10px  0;
+}
+.UserProfile h5{
+  color: #999;
+}
+.UserProfile h5.Gas{
+  color:#666;
+}
+.UserProfile button{
+  border:1px solid #f6416c;
+  color: #f6416c;
+}
+.UserProfile button.clear{
+  background: #fff;
+  border:1px solid #151b4e;
+  color: #151b4e;
+}
+.UserProfile button.clear:hover{
+  color: #fff;
+  background: #151b4e;
+  border:1px solid #151b4e;
+}
+.UserProfile button:hover,
+.styles_modal__gNwvD  button.close:hover{
+  background: #f6416c;
+  border:1px solid #f6416c;
+  color: #fff;
+}
+.styles_modal__gNwvD{
+  width: 400px;
+  padding: 2% ;
+}
+.styles_modal__gNwvD h4{
+  font-weight: 600;
+}
+.styles_modal__gNwvD button.close{
+  border:1px solid #f6416c;
+  color: #f6416c;
+  margin: 5% 0;
+}
+/*UserProfile end*/
 .fixed-plugin li > a,
 .fixed-plugin .badge{
     transition: all .34s;
