@@ -32,18 +32,12 @@ class ApplyService {
 
   }
 
-  approveWithdraw(address,size,applyAddress){
+  approveWithdraw(address,size,applyAddress,id){
 
   return new Promise((resolve, reject) => {
      console.log(Exchange.abi);
       var contract = new window.web3.eth.Contract(Exchange.abi,window.config.exchangeAddress);
-
-      var id       = window.web3.utils.randomHex(32);
-      if(id.length % 2 !=0)
-      {
-        id = id +"0";
-      }
-
+      
       var dataobj  = contract.methods.approveWithdraw( id,applyAddress,size ,window.config.ppsAddress).encodeABI();
       
       window.web3.eth.getTransactionCount(window.address).then((txCount) =>{
