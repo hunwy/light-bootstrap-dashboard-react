@@ -32,7 +32,7 @@ class ApplyService {
 
   }
 
-  approveWithdraw(address,size){
+  approveWithdraw(address,size,applyAddress){
 
   return new Promise((resolve, reject) => {
      console.log(Exchange.abi);
@@ -44,14 +44,14 @@ class ApplyService {
         id = id +"0";
       }
 
-      var dataobj  = contract.methods.approveWithdraw( id,address,size ,window.config.ppsAddress).encodeABI();
+      var dataobj  = contract.methods.approveWithdraw( id,applyAddress,size ,window.config.ppsAddress).encodeABI();
       
       window.web3.eth.getTransactionCount(window.address).then((txCount) =>{
                      
             var txData = {
                           nonce    : window.web3.utils.toHex(txCount),
-                          gasLimit : window.web3.utils.toHex(55271),
-                          gasPrice : window.web3.utils.toHex(window.gas), // 10 Gwei
+                          gasLimit : window.web3.utils.toHex(153916),
+                          gasPrice : window.web3.utils.toHex(parseInt(window.gas)*1000000000), // 10 Gwei
                           to       : window.config.exchangeAddress,
                           from     : window.address, 
                           data     : dataobj
@@ -63,12 +63,14 @@ class ApplyService {
             var serializedTx = transaction.serialize().toString('hex');
 
             var params = {};
-            params.TransactionData        = '0x' + serializedTx;
+            params.applyTransactionData   = '0x' + serializedTx;
             params.id                     = id;
             params.account                = address;
             params.size                   = size;
+            params.applyAddress           = applyAddress;
 
-            axios.post(process.env.Server_Address+'exchange/approveWithdraw', params)
+           
+            axios.post(server_domain+'/exchange/approveWithdraw', params)
             .then(function (response) {
             resolve(response);
             })

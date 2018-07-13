@@ -1,1 +1,1 @@
-export const server_domain = 'https://server.populstay.com'
+export const server_domain = 'http://localhost:1338'

@@ -26,8 +26,8 @@ class TableList extends Component {
       
   }
 
-  approveWithdraw(account,size){
-    applyService.approveWithdraw(account,size)
+  approveWithdraw(account,size,applyAddress){
+    applyService.approveWithdraw(account,size,applyAddress);
   }
 
 
@@ -57,9 +57,10 @@ class TableList extends Component {
                         return (
                           <tr key={key}>
                             <td >{prop.account}</td>
+                            <td >{prop.applyAddress}</td>
                             <td >{prop.size}</td>
                             <td >{prop.transaction}</td>
-                            <td><button onClick={(e)=>this.approveWithdraw(prop.account,prop.size)}>Approve</button><button>Rejected</button></td>
+                            <td><button onClick={(e)=>this.approveWithdraw(prop.account,prop.size,prop.applyAddress)}>Approve</button><button>Rejected</button></td>
                           </tr>
                         );
                       })}
