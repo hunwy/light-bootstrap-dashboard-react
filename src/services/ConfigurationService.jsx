@@ -19,6 +19,37 @@ class ConfigurationService {
 
   }
 
+  subConfig(key,value,description){
+    return new Promise((resolve, reject) => {
+        var params = {};
+        params.key              = key;
+        params.value            = value;
+        params.description      = description;
+
+        axios.post(server_domain+'/configuration',params)
+        .then(function (response) {
+        resolve(response);
+        })
+        .catch(function (error) {
+        console.error(error);
+        reject(error);
+        }); 
+      });
+  }
+
+  deleConfig(id){
+    return new Promise((resolve, reject) => {
+        axios.delete(server_domain+'/configuration/'+id)
+        .then(function (response) {
+        resolve(response);
+        })
+        .catch(function (error) {
+        console.error(error);
+        reject(error);
+        }); 
+      });
+  }
+
   constructor() 
   {
     if (ConfigurationService.instance) {

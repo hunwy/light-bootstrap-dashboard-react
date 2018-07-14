@@ -249,7 +249,7 @@ var style = {
 //
 const thArray = ["Address", "size", "TX", "operation"];
 const tdArray = [];
-const ConfigurationthArray = ["ID", "Key", "Description", "Time", "operation"];
+const ConfigurationthArray = ["ID", "名称", "详情", "时间", "删除"];
 
 
 //
