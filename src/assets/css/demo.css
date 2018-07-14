@@ -1,7 +1,10 @@
 /*TableList start*/
+.TableList .table{
+  margin-bottom: 0px;
+}
 .TableList td button{
   padding: 5px 10px;
-  margin: 0 10px;
+  margin: 2px 10px;
   background: #fff;
   border:1px solid #151b4e;
   color: #151b4e;

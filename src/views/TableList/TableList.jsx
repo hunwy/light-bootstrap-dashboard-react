@@ -57,9 +57,9 @@ class TableList extends Component {
                       {this.state.applyArray.map((prop, key) => {
                         return (
                           <tr key={key}>
-                            <td >{prop.account}12132131</td>
-                            <td >{prop.size}1321313</td>
-                            <td >{prop.transaction}1231321</td>
+                            <td >{prop.account}</td>
+                            <td >{prop.size}</td>
+                            <td >{prop.transaction}</td>
                             <td><Button bsStyle="info" onClick={(e)=>this.approveWithdraw(prop.account,prop.size)}>Approve</Button><Button className="red" bsStyle="danger">Rejected</Button></td>
                           </tr>
                         );
