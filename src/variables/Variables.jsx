@@ -247,15 +247,12 @@ var style = {
 // // // For tables
 // //
 //
-const thArray = ["Address","To Address", "size", "TX", "operation"];
-const tdArray = [
-   ["0x04fe0f6Eb0998cdFFE47C33DEC4E30Ca698d3295", "100", "0xbecd58dbd25a45e2953a6617a4dcead31f50aa0abdd4f2b5afb3c8e87a13ca01"],
-   ["0x04fe0f6Eb0998cdFFE47C33DEC4E30Ca698d3295", "100", "0xbecd58dbd25a45e2953a6617a4dcead31f50aa0abdd4f2b5afb3c8e87a13ca01"],
-   ["0x04fe0f6Eb0998cdFFE47C33DEC4E30Ca698d3295", "100", "0xbecd58dbd25a45e2953a6617a4dcead31f50aa0abdd4f2b5afb3c8e87a13ca01"],
-   ["0x04fe0f6Eb0998cdFFE47C33DEC4E30Ca698d3295", "100", "0xbecd58dbd25a45e2953a6617a4dcead31f50aa0abdd4f2b5afb3c8e87a13ca01"],
-  ["0x04fe0f6Eb0998cdFFE47C33DEC4E30Ca698d3295", "100", "0xbecd58dbd25a45e2953a6617a4dcead31f50aa0abdd4f2b5afb3c8e87a13ca01"],
-   ["0x04fe0f6Eb0998cdFFE47C33DEC4E30Ca698d3295", "100", "0xbecd58dbd25a45e2953a6617a4dcead31f50aa0abdd4f2b5afb3c8e87a13ca01"]
-];
+
+const thArray = ["Address", "size", "TX", "operation"];
+const tdArray = [];
+const ConfigurationthArray = ["ID", "名称", "详情", "时间", "删除"];
+
+
 
 //
 // //
@@ -582,6 +579,7 @@ var legendBar = {
 module.exports = {
   style, // For notifications (App container and Notifications view)
   thArray,
+  ConfigurationthArray,
   tdArray, // For tables (TableList view)
   iconsArray, // For icons (Icons view)
   dataPie,

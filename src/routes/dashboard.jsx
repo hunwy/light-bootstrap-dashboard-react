@@ -28,7 +28,7 @@ const dashboardRoutes = [
   },
   {
     path: "/typography",
-    name: "Typography",
+    name: "配置文件",
     icon: "pe-7s-news-paper",
     component: Typography
   },
@@ -51,3 +51,4 @@ const dashboardRoutes = [
 ];
 
 export default dashboardRoutes;
+

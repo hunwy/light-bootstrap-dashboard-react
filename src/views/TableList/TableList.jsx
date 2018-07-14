@@ -62,7 +62,6 @@ class TableList extends Component {
                             <td >{prop.size}</td>
                             <td >{prop.transaction}</td>
                             <td><button onClick={(e)=>this.approveWithdraw(prop.account,prop.size,prop.applyAddress,prop.id)}>Approve</button><button>Rejected</button></td>
-
                           </tr>
                         );
                       })}

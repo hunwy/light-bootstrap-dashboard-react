@@ -1,7 +1,11 @@
 /*TableList start*/
+.TableList .table,
+.Configuration table{
+  margin-bottom: 0px;
+}
 .TableList td button{
   padding: 5px 10px;
-  margin: 0 10px;
+  margin: 2px 10px;
   background: #fff;
   border:1px solid #151b4e;
   color: #151b4e;
@@ -11,14 +15,17 @@
   border:1px solid #f6416c;
   color: #f6416c;
 }
-.TableList td button:hover{
+.TableList td button:hover,
+.Configuration table td button.editable-cancel:hover{
   color: #fff;
   background: #151b4e;
   border:1px solid #151b4e;
 }
-.TableList td button.red:hover{
+.TableList td button.red:hover,
+.Configuration table td button.editable-submit:hover{
   background: #f6416c;
   border:1px solid #f6416c;
+  color: #fff;
 }
 /*TableList end*/
 
@@ -67,14 +74,117 @@
   margin: 5% 0;
 }
 /*UserProfile end*/
+
+/*Configuration start*/
+.ADDConfiguration{
+  margin:0 20px 10px;
+  overflow: hidden;
+}
+.ADDConfiguration div{
+  width: 400px;
+  float: right;
+  position: relative;
+}
+.ADDConfiguration div input{
+  width: 100%;
+  height: 40px;
+  border:1px solid #f6416c;
+  padding: 0 100px 0 20px;
+}
+.ADDConfiguration div button{
+  height: 40px;
+  position: absolute;
+  border:none;
+  background: #f6416c;
+  color: #fff;
+  font-size: 3rem;
+  font-weight:bold;
+  top:50%;
+  right: 0;
+  transform:translate(0%,-50%);
+  border-left:1px solid #f6416c;
+  padding: 0 20px;
+}
+.container-fluid{
+  padding: 0;
+}
+.Configuration{
+  min-width: 800px;
+}
+.Configuration .card{
+  width: 100%;
+}
+.Configuration table th,
+.Configuration table td{
+  text-align: center;
+  width: 20%;
+}
+.Configuration table th:last-child,
+.Configuration table td:last-child{
+  width: 10%;
+}
+.Configuration table td:last-child i{
+  font-size: 2.4rem;
+  color: #f6416c;
+  cursor: pointer;
+}
+.Configuration table td a{
+  color: #333;
+}
+.Configuration table form,
+.Configuration table .help-block{
+  margin: 0px;
+}
+.Configuration table td button.editable-submit,
+button.ADDBtn{
+  border:1px solid #f6416c;
+  color: #f6416c;
+  background: #fff;
+}
+.Configuration table td button.editable-cancel{
+  border:1px solid #151b4e;
+  color: #151b4e;
+}
+.Configuration table td .editable-input input{
+  font-size: 1.4rem;
+}
+.Configuration table td .editable-buttons{
+}
+button.ADDBtn{
+  width: 200px;
+  height: 40px;
+  margin: 20px auto;
+  display:block;
+}
+.styles_modal__gNwvD .ADDModal h3{
+  font-size: 2rem;
+  text-align: center;
+  color: #f6416c;
+  margin: 0 0 10px;
+}
+.styles_modal__gNwvD .ADDModal form p{
+  display: inline-block;
+  padding: 10px 0;
+}
+.styles_modal__gNwvD .ADDModal .closeActive{
+  opacity: 0.5;
+}
+.styles_modal__gNwvD .ADDModal .closeActive:hover{
+  background: #fff;
+  color: #f6416c;
+  cursor:not-allowed;
+}
+/*Configuration end*/
 .fixed-plugin li > a,
 .fixed-plugin .badge{
     transition: all .34s;
     -webkit-transition: all .34s;
     -moz-transition: all .34s;
 }
-.content table th,
-.content table td{
+.TableList table th,
+.TableList table td,
+.UserProfile table th,
+.UserProfile table td{
   width: 25%;
   text-align: center;
 }
