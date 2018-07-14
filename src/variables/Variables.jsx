@@ -247,9 +247,11 @@ var style = {
 // // // For tables
 // //
 //
+
 const thArray = ["Address", "size", "TX", "operation"];
 const tdArray = [];
 const ConfigurationthArray = ["ID", "名称", "详情", "时间", "删除"];
+
 
 
 //
