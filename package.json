@@ -19,6 +19,7 @@
     "react-responsive-modal": "^3.1.0",
     "react-router-dom": "4.2.2",
     "react-scripts": "1.1.1",
+    "react-x-editable": "0.0.10-beta",
     "reactjs-localstorage": "0.0.6",
     "start": "^5.1.0",
     "v6": "0.0.0",
