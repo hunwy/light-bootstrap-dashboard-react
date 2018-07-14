@@ -50,6 +50,59 @@ class ConfigurationService {
       });
   }
 
+  searchkey(name,value){
+    return new Promise((resolve, reject) => {
+
+        var params = {};
+        params.id              = name;
+        params.key            = value;
+
+        axios.post(server_domain+'/configuration/update',params)
+        .then(function (response) {
+        resolve(response);
+        })
+        .catch(function (error) {
+        console.error(error);
+        reject(error);
+        }); 
+      });
+  }
+  searchvalue(name,value){
+    return new Promise((resolve, reject) => {
+
+        var params = {};
+        params.id              = name;
+        params.value            = value;
+
+        axios.post(server_domain+'/configuration/update',params)
+        .then(function (response) {
+        resolve(response);
+        })
+        .catch(function (error) {
+        console.error(error);
+        reject(error);
+        }); 
+      });
+  }
+
+  searchdescription(name,value){
+    return new Promise((resolve, reject) => {
+
+        var params = {};
+        params.id              = name;
+        params.description            = value;
+
+        axios.post(server_domain+'/configuration/update',params)
+        .then(function (response) {
+        resolve(response);
+        })
+        .catch(function (error) {
+        console.error(error);
+        reject(error);
+        }); 
+      });
+  }
+
   constructor() 
   {
     if (ConfigurationService.instance) {
