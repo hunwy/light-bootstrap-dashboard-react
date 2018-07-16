@@ -57,11 +57,21 @@ class TableList extends Component {
                       {this.state.applyArray.map((prop, key) => {
                         return (
                           <tr key={key}>
-                            <td >{prop.account}</td>
-                            <td >{prop.applyAddress}</td>
+                            <td ><input readOnly value={prop.account} /></td>
+                            <td ><input readOnly value={prop.applyAddress} /></td>
                             <td >{prop.size}</td>
-                            <td >{prop.transaction}</td>
-                            <td><button onClick={(e)=>this.approveWithdraw(prop.account,prop.size,prop.applyAddress,prop.id)}>Approve</button><button>Rejected</button></td>
+                            <td >{prop.transaction.slice(0,6)}...{prop.transaction.substr(prop.transaction.length-4)}</td>
+                            {prop.state == 0 &&
+                            <td>
+                              <button onClick={(e)=>this.approveWithdraw(prop.account,prop.size,prop.applyAddress,prop.id)}>Approve</button><button className="red">Rejected</button>
+                            </td>
+                            }
+                            {prop.state == 1 &&
+                              <td>审核通过</td>
+                            }
+                            {prop.state == -1 &&
+                              <td>审核失败</td>
+                            }
                           </tr>
                         );
                       })}

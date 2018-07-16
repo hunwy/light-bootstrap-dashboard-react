@@ -248,9 +248,9 @@ var style = {
 // //
 //
 
-const thArray = ["Address", "size", "TX", "operation"];
+const thArray = ["Address", "TOAddress", "size", "tx", "operation"];
 const tdArray = [];
-const ConfigurationthArray = ["ID", "名称", "详情", "时间", "删除"];
+const ConfigurationthArray = ["名称", "值", "详情", "删除"];
 
 
 

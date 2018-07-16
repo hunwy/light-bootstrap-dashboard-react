@@ -50,6 +50,59 @@ class ConfigurationService {
       });
   }
 
+  searchkey(name,value){
+    return new Promise((resolve, reject) => {
+
+        var params = {};
+        params.id              = name;
+        params.key            = value;
+
+        axios.post(server_domain+'/configuration/update',params)
+        .then(function (response) {
+        resolve(response);
+        })
+        .catch(function (error) {
+        console.error(error);
+        reject(error);
+        }); 
+      });
+  }
+  searchvalue(name,value){
+    return new Promise((resolve, reject) => {
+
+        var params = {};
+        params.id              = name;
+        params.value            = value;
+
+        axios.post(server_domain+'/configuration/update',params)
+        .then(function (response) {
+        resolve(response);
+        })
+        .catch(function (error) {
+        console.error(error);
+        reject(error);
+        }); 
+      });
+  }
+
+  searchdescription(name,value){
+    return new Promise((resolve, reject) => {
+
+        var params = {};
+        params.id              = name;
+        params.description            = value;
+
+        axios.post(server_domain+'/configuration/update',params)
+        .then(function (response) {
+        resolve(response);
+        })
+        .catch(function (error) {
+        console.error(error);
+        reject(error);
+        }); 
+      });
+  }
+
   constructor() 
   {
     if (ConfigurationService.instance) {
@@ -85,6 +138,13 @@ class ConfigurationService {
       if(config[i].key ==='ppsAddress')
       {
          window.config.ppsAddress = config[i].value;
+      }
+
+      //get etherscan url
+      if(config[i].key ==='etherscan')
+      {
+         window.config.etherscan = config[i].value;
+         console.log(config[i].value)
       }
 
 

@@ -22,10 +22,6 @@ class Typography extends Component {
       disabledtrue:true,
       disabledfalse:false,
     };
-    if(!window.address)
-    {
-      window.location.href="/";
-    }
   }
 
   onOpenModal = () => {
@@ -58,8 +54,22 @@ class Typography extends Component {
     })
   }
 
-  handleUpdate(){
+  keyUpdate(name,value){
+    ConfigurationService.searchkey(name,value).then((data)=>{
+      this.getConfigl();
+    })
+  }
 
+  valueUpdate(name,value){
+    ConfigurationService.searchvalue(name,value).then((data)=>{
+      this.getConfigl();
+    })
+  }
+
+  descriptionUpdate(name,value){
+    ConfigurationService.searchdescription(name,value).then((data)=>{
+      this.getConfigl();
+    })
   }
 
 
@@ -95,23 +105,27 @@ class Typography extends Component {
                       {this.state.ConfigurationArray.map((prop, key) => {
                         return (
                           <tr key={key}>
-                            <td>{prop.id}</td> 
-                            
                             <td>
                               <EditableTextField 
-                                name='username' 
+                                name={prop.id} 
                                 value={prop.key}
-                                onUpdate={this.handleUpdate}
+                                onUpdate={(name,value)=>this.keyUpdate(name,value)}
                                 placeholder='Please input your username'/>
                             </td>
                             <td className="description">
                               <EditableTextField 
-                                name='username' 
-                                value={prop.description}
-                                onUpdate={this.handleUpdate}
+                                name={prop.id}  
+                                value={prop.value}
+                                onUpdate={(name,value)=>this.valueUpdate(name,value)}
                                 placeholder='Please input your username'/>
                             </td>
-                            <td>{(prop.createdAt.split("T"))[0]}</td>
+                            <td className="description">
+                              <EditableTextField 
+                                name={prop.id}   
+                                value={prop.description}
+                                onUpdate={(name,value)=>this.descriptionUpdate(name,value)}
+                                placeholder='Please input your username'/>
+                            </td>
                             <td><i className="pe-7s-trash" onClick={(e)=>this.deleConfiguration(prop.id)} /></td>
                           </tr>
                         );
