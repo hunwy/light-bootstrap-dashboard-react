@@ -1,4 +1,14 @@
 /*TableList start*/
+.TableList table th,
+.TableList table td{
+  width: 20%;
+  text-align: center;
+}
+.TableList table td input{
+  outline:none;
+  border:none;
+  background: none;
+}
 .TableList .table,
 .Configuration table{
   margin-bottom: 0px;
@@ -181,8 +191,6 @@ button.ADDBtn{
     -webkit-transition: all .34s;
     -moz-transition: all .34s;
 }
-.TableList table th,
-.TableList table td,
 .UserProfile table th,
 .UserProfile table td{
   width: 25%;

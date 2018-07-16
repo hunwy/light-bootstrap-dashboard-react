@@ -144,6 +144,7 @@ class ConfigurationService {
       if(config[i].key ==='etherscan')
       {
          window.config.etherscan = config[i].value;
+         console.log(config[i].value)
       }
 
 
