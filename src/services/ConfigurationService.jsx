@@ -140,6 +140,12 @@ class ConfigurationService {
          window.config.ppsAddress = config[i].value;
       }
 
+      //get etherscan url
+      if(config[i].key ==='etherscan')
+      {
+         window.config.etherscan = config[i].value;
+      }
+
 
     }
 
