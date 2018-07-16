@@ -60,12 +60,24 @@ class TableList extends Component {
                             <td ><input readOnly value={prop.account} /></td>
                             <td ><input readOnly value={prop.applyAddress} /></td>
                             <td >{prop.size}</td>
-                            <td >{prop.transaction.slice(0,6)}...{prop.transaction.substr(prop.transaction.length-4)}</td>
+                            { prop.transaction != null &&
+                              <td >
+                              <a target="_blank" href={window.config.etherscan+prop.transaction} >
+                              {prop.transaction.slice(0,6)}...{prop.transaction.substr(prop.transaction.length-4)}
+                              </a>
+                              </td>
+                            }
+                            { prop.transaction == null &&
+                              <td >/</td>
+                            }
+                            
+                            
                             {prop.state == 0 &&
                             <td>
                               <button onClick={(e)=>this.approveWithdraw(prop.account,prop.size,prop.applyAddress,prop.id)}>Approve</button><button className="red">Rejected</button>
                             </td>
                             }
+
                             {prop.state == 1 &&
                               <td>审核通过</td>
                             }
