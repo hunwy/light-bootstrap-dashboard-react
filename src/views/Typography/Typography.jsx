@@ -21,6 +21,8 @@ class Typography extends Component {
       Configurationdescription:"",
       disabledtrue:true,
       disabledfalse:false,
+      Searchipt:"",
+      Searchselect:"key",
     };
   }
 
@@ -72,7 +74,46 @@ class Typography extends Component {
     })
   }
 
+  ConfigSearch(){
+    let Searchipt = this.state.Searchipt.replace(/(^\s*)|(\s*$)/g, "");
+    if(Searchipt){
+      if(this.state.Searchselect == "key"){
+        var ConfigurationArray = this.state.ConfigurationArray.filter(function (e) { 
+          return e.key == Searchipt; 
+        });
+        this.setState({ConfigurationArray:ConfigurationArray})
+      }
+      if(this.state.Searchselect == "value"){
+        var ConfigurationArray = this.state.ConfigurationArray.filter(function (e) { 
+          return e.value == Searchipt; 
+        });
+        this.setState({ConfigurationArray:ConfigurationArray})
+      }
+      if(this.state.Searchselect == "description"){
+        var ConfigurationArray = this.state.ConfigurationArray.filter(function (e) { 
+          return e.description == Searchipt; 
+        });
+        this.setState({ConfigurationArray:ConfigurationArray})
+      }
+    }else{
+      this.getConfigl() 
+    }
+  }
 
+  Searchipt(e){
+    this.setState({Searchipt:e})
+    this.getConfigl();
+  }
+
+  Searchselect(e){
+    this.setState({Searchselect:e})
+    this.getConfigl();
+  }
+
+  Searchdel(){
+    this.setState({Searchipt:""})
+    this.getConfigl();
+  }
 
 
   render() {
@@ -89,9 +130,15 @@ class Typography extends Component {
                   <div>
                     <div className="ADDConfiguration">
                       <div>
-                        <input type="text" />
-                        <button className="pe-7s-search"> </button> 
+                        <input type="text" onChange={(e) => this.Searchipt(e.target.value)} value={this.state.Searchipt} />
+                        <p onClick={(e)=>this.Searchdel()} className={this.state.Searchipt != "" ? "show" : "hide"}>x</p>
+                        <button className="pe-7s-search" onClick={(e)=>this.ConfigSearch()}> </button> 
                       </div>  
+                      <select onChange={(e) => this.Searchselect(e.target.value)}>
+                        <option value ="key">名称</option>
+                        <option value ="value">地址</option>
+                        <option value="description">详情</option>
+                      </select>
                     </div>
                   <Table striped hover>
                     <thead>

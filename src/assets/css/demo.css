@@ -90,16 +90,41 @@
   margin:0 20px 10px;
   overflow: hidden;
 }
+.ADDConfiguration select{
+  float: right;
+  height: 40px;
+  padding: 0 10px;
+  border:1px solid #f6416c;
+}
+.ADDConfiguration select option{
+  padding: 10px;
+  display: block;
+}
 .ADDConfiguration div{
   width: 400px;
   float: right;
   position: relative;
 }
+.ADDConfiguration div p{
+  position: absolute;
+  top:50%;
+  right: 85px;
+  transform:translate(0%,-50%);
+  font-size: 1.2rem;
+  color: #fff;
+  background: #f6416c;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 15px;
+  cursor: pointer;
+}
 .ADDConfiguration div input{
   width: 100%;
   height: 40px;
   border:1px solid #f6416c;
-  padding: 0 100px 0 20px;
+  padding: 0 120px 0 20px;
 }
 .ADDConfiguration div button{
   height: 40px;

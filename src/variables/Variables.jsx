@@ -250,7 +250,7 @@ var style = {
 
 const thArray = ["Address", "TOAddress", "size", "tx", "operation"];
 const tdArray = [];
-const ConfigurationthArray = ["名称", "值", "详情", "删除"];
+const ConfigurationthArray = ["名称", "地址", "详情", "删除"];
 
 
 
